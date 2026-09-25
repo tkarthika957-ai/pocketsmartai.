@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PocketSmart AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>PocketSmart AI - Dashboard</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/login">Logout</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Welcome to Your Dashboard</h2>
+        <p>Select a module to create a new budget plan:</p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>Home Interior</h3>
+                <a href="/home_planner" class="btn">Open Planner</a>
+            </div>
+            <div class="card">
+                <h3>Party Planner</h3>
+                <a href="/party_planner" class="btn">Open Planner</a>
+            </div>
+            <div class="card">
+                <h3>Jewelry Planner</h3>
+                <a href="/jewelry_planner" class="btn">Open Planner</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
