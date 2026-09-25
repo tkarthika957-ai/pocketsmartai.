@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketSmart AI</title>
+</head>
+
+<body>
+
+    <h1>?? PocketSmart AI</h1>
+    <p>Your Smart Budget & Recommendation Assistant</p>
+
+    <hr>
+
+    <h2>Home Interior Planner</h2>
+
+    <form id="homeForm">
+        <label>Budget (?):</label>
+        <input type="number" id="homeBudget" required>
+        <br><br>
+
+        <label>Requirements:</label>
+        <textarea id="homeRequirements" required></textarea>
+        <br><br>
+
+        <button type="submit">Get Home Recommendations</button>
+    </form>
+
+    <div id="homeResult"></div>
+
+    <hr>
+
+    <h2>Party Planner</h2>
+
+    <form id="partyForm">
+        <label>Budget (?):</label>
+        <input type="number" id="partyBudget" required>
+        <br><br>
+
+        <label>Requirements:</label>
+        <textarea id="partyRequirements" required></textarea>
+        <br><br>
+
+        <button type="submit">Get Party Recommendations</button>
+    </form>
+
+    <div id="partyResult"></div>
+
+    <hr>
+
+    <h2>Jewelry Planner</h2>
+
+    <form id="jewelryForm">
+        <label>Budget (?):</label>
+        <input type="number" id="jewelryBudget" required>
+        <br><br>
+
+        <label>Requirements:</label>
+        <textarea id="jewelryRequirements" required></textarea>
+        <br><br>
+
+        <button type="submit">Get Jewelry Recommendations</button>
+    </form>
+
+    <div id="jewelryResult"></div>
+
+
+<script>
+
+async function sendRequest(url, budget, requirements, resultId) {
+
+    const formData = new FormData();
+
+    formData.append("budget", budget);
+    formData.append("requirements", requirements);
+
+    const resultBox = document.getElementById(resultId);
+
+    resultBox.innerHTML = "<p>Generating recommendations...</p>";
+
+    try {
+
+        const response = await fetch(url, {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        resultBox.innerHTML = `
+            <h3>AI Recommendations</h3>
+            <pre>${data.recommendations}</pre>
+        `;
+
+    } catch (error) {
+
+        resultBox.innerHTML =
+            "<p>Error connecting to PocketSmart AI.</p>";
+    }
+}
+
+
+document.getElementById("homeForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    sendRequest(
+        "/generate-home",
+        document.getElementById("homeBudget").value,
+        document.getElementById("homeRequirements").value,
+        "homeResult"
+    );
+
+});
+
+
+document.getElementById("partyForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    sendRequest(
+        "/generate-party",
+        document.getElementById("partyBudget").value,
+        document.getElementById("partyRequirements").value,
+        "partyResult"
+    );
+
+});
+
+
+document.getElementById("jewelryForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    sendRequest(
+        "/generate-jewelry",
+        document.getElementById("jewelryBudget").value,
+        document.getElementById("jewelryRequirements").value,
+        "jewelryResult"
+    );
+
+});
+
+</script>
+
+</body>
+</html>

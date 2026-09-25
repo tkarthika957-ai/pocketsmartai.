@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Planner - PocketSmart AI</title>
+</head>
+
+<body>
+
+    <h1>?? Jewelry Planner</h1>
+    <p>Find jewelry recommendations according to your budget.</p>
+
+    <form action="/generate-jewelry" method="post">
+
+        <label for="budget">Your Budget (?):</label>
+        <br>
+        <input
+            type="number"
+            id="budget"
+            name="budget"
+            placeholder="Enter your budget"
+            required
+        >
+
+        <br><br>
+
+        <label for="requirements">Jewelry Requirements:</label>
+        <br>
+        <textarea
+            id="requirements"
+            name="requirements"
+            rows="6"
+            cols="50"
+            placeholder="Example: Gold ring, necklace, earrings..."
+            required
+        ></textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Generate Jewelry Recommendations
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/">? Back to PocketSmart AI</a>
+
+</body>
+</html>

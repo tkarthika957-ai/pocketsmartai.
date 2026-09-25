@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Interior Planner - PocketSmart AI</title>
+</head>
+
+<body>
+
+    <h1>?? Home Interior Planner</h1>
+    <p>Plan your home interior according to your budget.</p>
+
+    <form action="/generate-home" method="post">
+
+        <label for="budget">Your Budget (?):</label>
+        <br>
+        <input
+            type="number"
+            id="budget"
+            name="budget"
+            placeholder="Enter your budget"
+            required
+        >
+
+        <br><br>
+
+        <label for="requirements">What do you need?</label>
+        <br>
+        <textarea
+            id="requirements"
+            name="requirements"
+            rows="6"
+            cols="50"
+            placeholder="Example: Bedroom furniture, sofa, curtains..."
+            required
+        ></textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Generate Recommendations
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/">? Back to PocketSmart AI</a>
+
+</body>
+</html>
