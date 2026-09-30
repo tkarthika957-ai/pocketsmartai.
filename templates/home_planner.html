@@ -1,52 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Interior Planner - PocketSmart AI</title>
+    <title>pocketsmart - home interior planner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'segoe ui', tahoma, geneva, verdana, sans-serif;
+        }
+        body {
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .navbar {
+            background-color: #1e40af;
+            color: white;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 { font-size: 20px; }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+        .card-header {
+            background-color: #1e40af;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
 </head>
-
 <body>
 
-    <h1>?? Home Interior Planner</h1>
-    <p>Plan your home interior according to your budget.</p>
+    <div class="navbar">
+        <h1>pocketsmart - home interior planner</h1>
+        <div class="nav-links">
+            <a href="/dashboard">dashboard</a>
+            <a href="/home_planner">home planner</a>
+            <a href="#">party planner</a>
+            <a href="#">jewelry planner</a>
+        </div>
+    </div>
 
-    <form action="/generate-home" method="post">
-
-        <label for="budget">Your Budget (?):</label>
-        <br>
-        <input
-            type="number"
-            id="budget"
-            name="budget"
-            placeholder="Enter your budget"
-            required
-        >
-
-        <br><br>
-
-        <label for="requirements">What do you need?</label>
-        <br>
-        <textarea
-            id="requirements"
-            name="requirements"
-            rows="6"
-            cols="50"
-            placeholder="Example: Bedroom furniture, sofa, curtains..."
-            required
-        ></textarea>
-
-        <br><br>
-
-        <button type="submit">
-            Generate Recommendations
-        </button>
-
-    </form>
-
-    <br>
-
-    <a href="/">? Back to PocketSmart AI</a>
+    <div class="container">
+        <!-- input form card -->
+        <div class="card">
+            <div class="card-header">enter home planning details</div>
+            <form action="/home_planner" method="post">
+                <div class="form-group">
+                    <label>room types & quantities (e.g., 2 bedrooms, 1 living room):</label>
+                    <input type="text" name="rooms" placeholder="2 bedrooms, living room" required>
+                </div>
+                <div class="form-group">
+                    <label>total budget ($ / ₹):</label>
+                    <input type="number" name="budget" placeholder="2500" required>
+                </div>
+                <button type="submit" class="btn-submit">generate recommendations</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
