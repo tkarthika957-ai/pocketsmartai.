@@ -29,10 +29,15 @@ def generate_home():
 @app.route('/login')
 def login():
     return render_template('login.html')
-
-
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if username and password:
+            return "Registration successful! You can now login."
+
     return render_template('register.html')
 
 
