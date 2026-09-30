@@ -3,28 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PocketSmart AI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Login - PocketSmart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            min-height: 100vh;
+        }
+
+        /* Top Navbar */
+        .navbar {
+            background-color: #1e40af;
+            color: #ffffff;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Centered Login Card */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+        }
+
+        .login-card h2 {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #2563eb;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        .register-link {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 16px;
+        }
+
+        .register-link a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>PocketSmart AI</h1>
-        <nav>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">PocketSmart</div>
+        <div class="nav-links">
             <a href="/">Home</a>
-        </nav>
-    </header>
+            <a href="/register">Register</a>
+        </div>
+    </div>
 
-    <main class="container">
-        <h2>Login to Your Account</h2>
-        <form action="/login" method="POST">
-            <label for="username">Username / Email:</label>
-            <input type="text" id="username" name="username" required>
+    <!-- Login Form Container -->
+    <div class="login-container">
+        <div class="login-card">
+            <h2>Login to PocketSmart</h2>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required autocomplete="off">
+                </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
 
-            <button type="submit" class="btn">Login</button>
-        </form>
-    </main>
+                <button type="submit" class="btn-submit">Login</button>
+            </form>
+
+            <div class="register-link">
+                Don't have an account? <a href="/register">Register here</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
