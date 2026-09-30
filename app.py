@@ -27,7 +27,7 @@ def generate_home():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
-    @app.route('/login')
+    app.run(host='0.0.0.0', port=5000) 
+@app.route('/login')
 def login():
     return render_template('login.html')
